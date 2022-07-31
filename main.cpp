@@ -44,6 +44,7 @@ int main() {
     std::cout << "\nTips Average: $" << new_data.get_average_tips();
     std::cout << "\nToday's Adjusted Hourly Rate: $" << new_data.get_today_average_wage();
     std::cout << "\nOverall Adjusted Hourly Rate: $" << new_data.get_overall_average_wage();
+    std::cout << std::endl;
 
     file.close();
 
