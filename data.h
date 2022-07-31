@@ -5,6 +5,9 @@
 #ifndef WAGE_CALCULATOR_DATA_H
 #define WAGE_CALCULATOR_DATA_H
 
+const float FEDERAL_TAX{0.153};
+const float CO_STATE_TAX{0.0455};
+const float FICA_STATE_INS_TAX{0.0765};
 
 #include <iostream>
 
@@ -17,11 +20,30 @@ public:
 
     float get_today_average_wage() const;
 
+    float get_today_average_wage_post_tax() const;
+
     float get_overall_average_wage() const;
 
+    float get_overall_average_wage_post_tax() const;
+
+    float get_total_daily_earned() const;
+
+    float get_total_daily_earned_post_tax() const;
+
+
     friend std::ostream& operator<<(std::ostream& out, const data& obj) {
-        out << obj.wage_ << "\n" << obj.total_hours_ << "\n" << obj.days_ << "\n" << obj.total_tips_ << "\n"
-            << obj.today_hours_ << "\n" << obj.today_tips_ << std::endl;
+        out << obj.wage_
+            << "\n"
+            << obj.total_hours_
+            << "\n"
+            << obj.days_
+            << "\n"
+            << obj.total_tips_
+            << "\n"
+            << obj.today_hours_
+            << "\n"
+            << obj.today_tips_
+            << std::endl;
         return out;
     }
 

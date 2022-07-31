@@ -32,3 +32,22 @@ float data::get_overall_average_wage() const {
     }
     return 0;
 }
+
+float data::get_total_daily_earned() const {
+    return wage_ * today_hours_ + today_tips_;
+}
+
+float data::get_overall_average_wage_post_tax() const {
+    return get_overall_average_wage() - (get_overall_average_wage() * FEDERAL_TAX) -
+           (get_overall_average_wage() * CO_STATE_TAX) - (get_overall_average_wage() * FICA_STATE_INS_TAX);
+}
+
+float data::get_total_daily_earned_post_tax() const {
+    return get_total_daily_earned() - (get_total_daily_earned() * FEDERAL_TAX) -
+           (get_total_daily_earned() * CO_STATE_TAX) - (get_total_daily_earned() * FICA_STATE_INS_TAX);
+}
+
+float data::get_today_average_wage_post_tax() const {
+    return get_today_average_wage() - (get_today_average_wage() * FEDERAL_TAX) -
+           (get_today_average_wage() * CO_STATE_TAX) - (get_today_average_wage() * FICA_STATE_INS_TAX);
+}
